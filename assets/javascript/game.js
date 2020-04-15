@@ -28,6 +28,7 @@ document.onkeyup = function (event) {
     letterUser.push(userGuess);
     countGuessesLeft();
     farUserGuesses();
+    
 
     if (userGuess === computerGuess) {
         wins++;
