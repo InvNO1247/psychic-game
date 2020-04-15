@@ -14,9 +14,31 @@ function countGuesses() {
 
 countGuessesLeft();
 
-var restart = function() {
+var restart = function () {
     guessesLeft = 9;
     letterUser = [];
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 }
 
+document.onkeyup = function (event) {
+    guessesLeft--;
+
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+    letterUser.push(userGuess);
+    countGuessesLeft();
+    farUserGuesses();
+
+    if (userGuess === computerGuess) {
+        wins++;
+        document.querySelector("#wins").innerHTML = "Wins: " + wins;
+        restart();
+    }
+
+    else if (guessesLeft ===) {
+        losses++;
+        document.querySelector("#lose").innerHTML = "Loses: " + losses;
+        restart();
+    }
+
+};
